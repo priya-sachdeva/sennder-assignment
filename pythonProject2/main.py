@@ -6,12 +6,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 import chromedriver_binary
 
-# Getting credentials from .env file
-from dotenv import load_dotenv
-load_dotenv()
+# Getting credentials from environment variables
 import os
-username=os.environ.get("user")
-password=os.environ.get("password")
+username=os.getenv("user")
+password=os.getenv("password")
 
 # Create browser instance
 browser = webdriver.Chrome()
@@ -22,7 +20,7 @@ browser.get("https://sprintboards.io/auth/login")
 # Login to the website
 login(browser,username,password)
 
-#  Create board button and waiting for session texbox
+#  Create board button and waiting for session textbox
 waitForElement(browser,createboard_button).click()
 waitForElement(browser,session_textbox)
 
