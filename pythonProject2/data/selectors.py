@@ -26,3 +26,5 @@ delete_title = "body > div.fade.modal.show > div > div > div.modal-header > div"
 delete_desc = "body > div.fade.modal.show > div > div > div.modal-body > p"
 deletecard_button = "body > div.fade.modal.show > div > div > div.modal-footer.justify-content-start > button"
 card_number = "#wrapper > div > div.w-100.position-relative.d-flex.flex-column > div.d-flex.flex-column.flex-lg-row.flex-fill.px-1 > div:nth-child(1) > div > div > div > h6"
+
+
