@@ -39,14 +39,14 @@ sennder1.createboard(browser)
 # Add green card
 sennder1.waitForElement(browser,selector1.green_button).click()
 sennder1.waitForElement(browser,"body > div.fade.modal.show > div > div")
-assert sendder1.getElementByCssSelector(browser, "#add-card-modal").text == "Add a Card"
+assert sennder1.getElementByCssSelector(browser, "#add-card-modal").text == "Add a Card"
 sennder1.createcard(browser, 'Goal was achieved', 'Sprint was well planned')
 sennder1.waitForElement(browser, selector1.green_card)
 assert sennder1.getElementByCssSelector(browser,selector1.greencard_title).text == "Goal was achieved"
 assert sennder1.getElementByCssSelector(browser,selector1.greencard_desc).text == "Sprint was well planned"
 
 # Add red card
-sennder1.getElementByCssSelector(browser,red_button).click()
+sennder1.getElementByCssSelector(browser,selector1.red_button).click()
 sennder1.waitForElement(browser,"body > div.fade.modal.show > div > div")
 assert sennder1.getElementByCssSelector(browser,"#add-card-modal").text == "Add a Card"
 sennder1.createcard(browser, 'Goal was not achieved')
