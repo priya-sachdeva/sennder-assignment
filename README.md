@@ -25,7 +25,7 @@ pip3 install -r requirements.txt
 ```
 
 ###Step 3: Run tests
-> NOTE: Please get in touch with *Vaughn Morgan* from the Sennder recruiting team for the password for the user. It's mentioned in the assignment pdf 
+> NOTE: Please get in touch with *Vaughn Morgan* from the Sennder recruiting team for the password for the user. It's mentioned in the assignment file 
 
 ####3.1 How to run on Mac/Linux:
 Run the following commands to execute the tests:
