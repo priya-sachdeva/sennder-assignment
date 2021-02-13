@@ -29,12 +29,14 @@ pip3 install -r requirements.txt
 
 Run the following command to execute the tests:
 ```
-USER_NAME="sennderqa3@gmail.com"  PWD=<pwd-in-double=quotes> pytest
+set USER_NAME=sennderqa3@gmail.com  set PWD=<pwd from assignment file> pytest
 ```
-so, let's say if the password is **asdR#!asd&Pnh%**, then the command should be:
+so, let's say if the password is **asasd&Pnh**, then the command should be:
 ```
-USER_NAME="sennderqa3@gmail.com"  PWD=asdR#!asd&Pnh% pytest
+set USER_NAME=sennderqa3@gmail.com  set PWD=asasd^&Pnh pytest
 ```
+Use caret symbol(^) to escape special character.
+
 ## Description
 The main components of the framework are:
 - pytest
@@ -44,12 +46,11 @@ The main components of the framework are:
 Because of lack of time, I have used only chrome as the browser to run the tests.
 
 ### Workflow
-pytest takes care of most of the stuff in itself so there is very little amount of pre-requisites that need to be done
 
 1. **pytest.ini**
 
     This file can be used to configure pytest (base_url, tests path etc). 
-    I have used this file specify the path where the test files - that are to be executed - are kept
+    I have used this file to specify the path where the test files that are to be executed are kept
    
 
 2. **conftest.py**
@@ -64,8 +65,7 @@ pytest takes care of most of the stuff in itself so there is very little amount 
 3. **data**
     
     I have used this directory to store selectors in a python file. We can also create a separate python file in this directory to store other static data, like
-    - store credentials
-    - store test data
+      test data
     etc.
 
 
@@ -76,7 +76,7 @@ pytest takes care of most of the stuff in itself so there is very little amount 
 
 5. **tests**
 
-    This is the directory that contains the test to be executed. Consider this quivalent to the test cases you would have for manual testing
+    This is the directory that contains the test to be executed. Consider this equivalent to the test cases you would have for manual testing
 
 ## Thank You!
 Thank you for the opportunity. It was fun doing the assignment.
