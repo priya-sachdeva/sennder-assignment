@@ -1,64 +1,32 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select
-import chromedriver_binary
-
-from functions.sennder import Sennder
-sennder1 = Sennder()
-
-from data.selectors import Selectors
-selector1 = Selectors()
-
-# Getting credentials from environment variables
 import os
-username=os.getenv("user")
-password=os.getenv("password")
 
-# Create browser instance
-browser = webdriver.Chrome()
+def test_login(sennder):
+    sennder.open_url("https://sprintboards.io/auth/login")
+    sennder.login(os.environ["USER_NAME"], os.environ["PWD"])
 
-# Open the website
-browser.get("https://sprintboards.io/auth/login")
 
-# Login to the website
-sennder1.login(browser,username,password)
+def test_create_board(sennder):
+    board_title = "My first board"
+    sennder.openCreateBoardPage()
+    sennder.createboard(board_title)
 
-#  Create board button and waiting for session textbox
-sennder1.waitForElement(browser,selector1.createboard_button).click()
-sennder1.waitForElement(browser,selector1. session_textbox)
 
-# Check Browser Title and URL
-assert browser.current_url == "https://sprintboards.io/boards/create"
-assert "Create a Board" in browser.title
+def test_create_green_card(sennder):
+    card_title = "Goal was achieved"
+    card_desc = "Sprint was well planned"
+    sennder.opencard("green")
+    sennder.createcard("green", card_title, card_desc)
 
-# Create Board
-sennder1.createboard(browser)
 
-# Add green card
-sennder1.waitForElement(browser,selector1.green_button).click()
-sennder1.waitForElement(browser,"body > div.fade.modal.show > div > div")
-assert sennder1.getElementByCssSelector(browser, "#add-card-modal").text == "Add a Card"
-sennder1.createcard(browser, 'Goal was achieved', 'Sprint was well planned')
-sennder1.waitForElement(browser, selector1.green_card)
-assert sennder1.getElementByCssSelector(browser,selector1.greencard_title).text == "Goal was achieved"
-assert sennder1.getElementByCssSelector(browser,selector1.greencard_desc).text == "Sprint was well planned"
+def test_create_red_card(sennder):
+    card_title = "Goal was not achieved"
+    sennder.opencard("red")
+    sennder.createcard("red", card_title)
 
-# Add red card
-sennder1.getElementByCssSelector(browser,selector1.red_button).click()
-sennder1.waitForElement(browser,"body > div.fade.modal.show > div > div")
-assert sennder1.getElementByCssSelector(browser,"#add-card-modal").text == "Add a Card"
-sennder1.createcard(browser, 'Goal was not achieved')
-sennder1.waitForElement(browser,selector1.red_card)
-assert sennder1.getElementByCssSelector(browser,selector1.redcard_title).text == "Goal was not achieved"
-assert sennder1.getElementByCssSelector(browser,selector1.redcard_desc).text == "No description provided."
 
-# Like green card
-sennder1.like(browser)
+def test_like_green_card(sennder):
+    sennder.like_card("green")
 
-# Delete red card
-sennder1.delete(browser)
 
-# Exit browser
-browser.quit()
+def test_delete_red_card(sennder):
+    sennder.delete_card("red")
