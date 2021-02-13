@@ -27,3 +27,4 @@ six~=1.15.0
 simplejson~=3.17.2
 setuptools~=49.2.0
 selenium~=3.141.0
+chromedriver==2.24.1

@@ -27,15 +27,40 @@ pip3 install -r requirements.txt
 ###Step 3: Run tests
 > NOTE: Please get in touch with *Vaughn Morgan* from the Sennder recruiting team for the password for the user. It's mentioned in the assignment pdf 
 
-Run the following command to execute the tests:
+####3.1 How to run on Mac/Linux:
+Run the following commands to execute the tests:
 ```
-set USER_NAME=sennderqa3@gmail.com  set PWD=<pwd from assignment file> pytest
+USER_NAME="sennderqa3@gmail.com"  PWD=<pwd-in-double=quotes> pytest
 ```
-so, let's say if the password is **asasd&Pnh**, then the command should be:
+so, let's say if the password is **asdR#!asd&Pnh%**, then the command should be:
 ```
-set USER_NAME=sennderqa3@gmail.com  set PWD=asasd^&Pnh pytest
+USER_NAME="sennderqa3@gmail.com"  PWD="asdR#!asd&Pnh%" pytest
 ```
-Use caret symbol(^) to escape special character.
+
+####3.2 How to run on Windows:
+Run the following commands to execute the tests:
+```
+set USER_NAME=sennderqa3@gmail.com  
+```
+```
+set PWD=<pwd from assignment file> 
+```
+```
+pytest
+```
+
+so, let's say if the password is **asasd&Pnh**, then the command should be
+[Use caret symbol(^) to escape special character]:
+```
+set USER_NAME=sennderqa3@gmail.com  
+```
+```
+set PWD=asasd^&Pnh 
+```
+```
+pytest
+```
+
 
 ## Description
 The main components of the framework are:
